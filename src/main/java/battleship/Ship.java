@@ -59,10 +59,6 @@ public class Ship {
         }
     }
 
-    public String getOrientation(){
-        return orientation;
-    }
-
     private void setOrientationFromHits(){
         if(hitCords[0].charAt(0) == hitCords[1].charAt(0)){
             orientation = "horizontal";
@@ -70,6 +66,10 @@ public class Ship {
             orientation = "vertical";
         }
     }
+
+
+
+    public String getOrientation(){ return orientation; }
 
     public void setOrientation(String orientation) { this.orientation = orientation ; }
 
