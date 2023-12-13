@@ -9,7 +9,7 @@ public class TargettingMaps {
 
     public TargettingMaps(){
         generateTargetBoard();
-        generateTargettingMapBook();
+        mapBook = generateTargettingMapBook();
     }
     
     public char[][] getTargetMap(){
@@ -32,7 +32,7 @@ public class TargettingMaps {
         }
     }
 
-    private void generateTargettingMapBook(){
+    private char[][][][] generateTargettingMapBook(){
 
         /// DEMONSTRATING 4 DIMENSIONAL ARRAYS \\\
         /* The purpose of this function is to create alternate maps that will be needed to remap the current target board,
@@ -42,6 +42,7 @@ public class TargettingMaps {
          * everyTwo, has no additional offset(first is mirror'ed), everyThree has two possible offsets, everyFour has three, and everyFive has four.
          * 
          */
+        char[][][][] mapBook = new char[4][][][];
 
         for(int i = 0; i < mapBook.length; i++){
             int[] mirrorList = {9,8,7,6,5,4,3,2,1,0};
@@ -66,6 +67,7 @@ public class TargettingMaps {
             }
             mapBook[i] = charts;
         }
+        return mapBook;
     }
 
     public void reGenerateTargettingBoard(char[][] currentBoard, String searchMode){
@@ -168,4 +170,6 @@ public class TargettingMaps {
             boardCopy[left[0]][left[1]] = zoneCount;
         }
     }
+
+    public char[][][][] getMapBook(){ return mapBook; }
 }
