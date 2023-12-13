@@ -3,7 +3,18 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class TargettingMapsTest {
-    
+    public char[][] testBoard = {
+        {'~','~','~','~','~','~','O','~','~','O'},
+        {'~','~','~','~','~','~','C','~','~','~'},
+        {'~','~','~','~','~','~','C','O','~','~'},
+        {'~','~','~','~','~','O','C','~','~','O'},
+        {'O','~','O','~','O','O','C','~','~','~'},
+        {'O','O','~','O','~','O','C','~','~','O'},
+        {'O','~','~','~','~','~','O','~','O','O'},
+        {'~','~','~','~','~','~','~','P','~','O'},
+        {'~','~','~','~','~','~','~','P','~','~'},
+        {'~','~','~','~','~','~','~','O','~','~'}
+    };
     @Test
     public void checkStartingTargetMap(){
         TargettingMaps radar = new TargettingMaps();
@@ -21,11 +32,8 @@ public class TargettingMapsTest {
         };
         assertArrayEquals(startBoard, radar.getTargetMap());
     }
-    
-    public void isTrue(){
-        assertTrue(true);
-    }
 
+    @Test
     public void checkMapBook(){
         TargettingMaps radar = new TargettingMaps();
         char[][][][] mapBook = {
@@ -329,7 +337,25 @@ public class TargettingMapsTest {
         assertArrayEquals(mapBook, radar.getMapBook());
     }
 
-
+    @Test
+    public void checkRegeneration(){
+        TargettingMaps radar = new TargettingMaps();
+        radar.setMapBookPage(1);
+        radar.reGenerateTargettingBoard(testBoard);
+        char[][] newTargetBoard = {
+            {'O','X','O','O','X','O','X','O','O','O'},
+            {'O','O','X','O','O','X','O','O','X','O'},
+            {'X','O','O','X','O','O','X','O','O','O'},
+            {'O','X','O','O','X','X','O','O','O','X'},
+            {'X','O','X','O','X','O','X','O','X','O'},
+            {'O','X','X','X','O','X','O','X','O','X'},
+            {'X','O','O','X','O','O','X','O','X','O'},
+            {'O','X','O','O','X','O','O','X','O','X'},
+            {'O','O','X','O','O','X','O','O','O','O'},
+            {'X','O','O','X','O','O','X','X','X','O'}
+        };
+        assertArrayEquals(newTargetBoard, radar.getTargetMap());
+    }
 
 
 

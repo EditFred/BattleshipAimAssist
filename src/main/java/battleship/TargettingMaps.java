@@ -70,16 +70,16 @@ public class TargettingMaps {
         return mapBook;
     }
 
-    public void reGenerateTargettingBoard(char[][] currentBoard, String searchMode){
-        ArrayList<ArrayList<int[]>> zones = findZones(currentBoard, searchMode);
+    public void reGenerateTargettingBoard(char[][] currentBoard){
+        ArrayList<ArrayList<int[]>> zones = findZones(currentBoard);
 
         for(int i = 0; i < zones.size(); i++){
-            char[][] bestMap = findZoneBestMap(searchMode, zones.get(i));
+            char[][] bestMap = findZoneBestMap(zones.get(i));
             adjustTargetMap(bestMap, zones.get(i));
         }
     }
 
-    private ArrayList<ArrayList<int[]>> findZones(char[][] currentBoard,  String searchMode){
+    private ArrayList<ArrayList<int[]>> findZones(char[][] currentBoard){
         ArrayList<ArrayList<int[]>> zones = new ArrayList<ArrayList<int[]>>();
         char[][] copyBoard = new char[10][10];
 
@@ -108,7 +108,7 @@ public class TargettingMaps {
         return zones;
     }
 
-    private char[][] findZoneBestMap(String searchMode, ArrayList<int[]> zone){
+    private char[][] findZoneBestMap(ArrayList<int[]> zone){
         int bestMapTargetsNeeded = 100;
         int bestMapIndex = 0;
         int currentMapIndex = 0;

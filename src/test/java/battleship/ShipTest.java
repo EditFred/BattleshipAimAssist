@@ -22,6 +22,7 @@ public class ShipTest {
         assertEquals(5, carrier.getLength());
     }
 
+    @Test
     public void shipHitSignatureCheck(){
         Ship patrol = new Ship("Patrol Boat");
         Ship submarine = new Ship("Submarine");
@@ -36,13 +37,14 @@ public class ShipTest {
         assertEquals('C', carrier.getHitSig());
     }
 
-
+    @Test
     public void gotHitEqualsCordinate(){
         Ship patrol = new Ship("Patrol Boat");
         patrol.gotHit("E5");
         assertEquals("E5", patrol.getHitsLocation()[0]);
     }
 
+    @Test
     public void shipOrientationEqualsVertical(){
         Ship battleship = new Ship("Battleship");
         battleship.gotHit("J5");
@@ -50,18 +52,22 @@ public class ShipTest {
         assertEquals("vertical", battleship.getOrientation());
     }
 
+    @Test
     public void shipOrientationEqualsHorizontal(){
         Ship battleship = new Ship("Battleship");
         battleship.gotHit("I4");
         battleship.gotHit("I5");
         assertEquals("horizontal", battleship.getOrientation());
     }
+
+    @Test
     public void shipOrientationEqualsUnknown(){
         Ship battleship = new Ship("Battleship");
         battleship.gotHit("I4");
         assertEquals("unknown", battleship.getOrientation());
     }
 
+    @Test
     public void shipHasSunk(){
         Ship carrier = new Ship("Carrier");
         carrier.gotHit("E5");
@@ -71,6 +77,7 @@ public class ShipTest {
         carrier.gotHit("E7");
         assertTrue(carrier.isSunk());
     }
+    @Test
     public void shipHasNotSunk(){
         Ship carrier = new Ship("Carrier");
         carrier.gotHit("E5");

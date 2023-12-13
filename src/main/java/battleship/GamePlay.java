@@ -87,7 +87,7 @@ public class GamePlay {
     private void sunkBoat(Ship ship){
         updateGameMode();
         board.removeTooSmallCavities();
-        radar.reGenerateTargettingBoard(board.getBoard(), playMode);
+        radar.reGenerateTargettingBoard(board.getBoard());
 
         unSunkHitShips.remove(ship);
         sunkShips.add(ship);
