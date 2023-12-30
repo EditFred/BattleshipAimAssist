@@ -171,7 +171,7 @@ public class TargetSelect {
         return newTarget;
     }
 
-    //refactor
+
     public static boolean checkFit(char direction, int[] startCord, int lengthNeeded, char[][] currentBoard){
         int needed = lengthNeeded;
         int open = 0;
